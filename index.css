@@ -1,0 +1,386 @@
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Outfit', sans-serif;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  background-color: hsl(0deg 0% 98.04%);
+  overflow-x: hidden;
+}
+
+.mobile-component {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 90px;
+  position: relative;
+  z-index: 2;
+}
+
+.mobile-bg-color {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+.mobile-bg-color::before {
+  content: "";
+  position: absolute;
+  top: -500px;
+  left: 2px;
+  width: 200%;
+  height: 201%;
+  background: linear-gradient(to bottom, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+  border-radius: 0 0 300px 300px;
+  transform: translateX(-87%);
+  z-index: -1;
+}
+
+.mobile-screen {
+  width: 270px;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: hsl(0, 0%, 100%);
+  overflow: hidden;
+  box-shadow: 0px 3px 5px 0px rgba(0 0 0 / 0.2);
+}
+
+.app {
+  width: 100%;
+  background-color: hsl(270, 20%, 96%);
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.app-header {
+  background: linear-gradient(to left, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+  border-radius: 16px 16px 8px 8px;
+  box-shadow: 0px 3px 5px 0px rgba(0 0 0 / 0.2);
+}
+
+.header-bg {
+  width: 50%;
+  height: 20px;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 0 0 16px 16px;
+  margin: auto;
+}
+
+.header-details {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.back-arrow {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.avatar-component {
+  width: 35px;
+  height: 35px;
+  border: 1px solid white;
+  border-radius: 50%;
+  margin: 0 10px;
+  opacity: 0;
+  transform: scale(1);
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-name: pulseWhite;
+}
+
+.avatar {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  color: white;
+  font-size: 14px;
+  opacity: 0;
+  animation-duration: 0.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-name: slideFromLeft;
+}
+
+.user-headline {
+  color: hsl(276, 100%, 81%);
+  font-size: 10px;
+  opacity: 0;
+  animation-duration: 0.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-name: slideFromLeft;
+}
+
+.three-dots-component {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.app-body {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.app-chats-component {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat {
+  display: flex;
+  align-items: center;
+  max-width: 55%;
+  border-radius: 12px;
+  padding: 7px 10px;
+  font-size: 10px;
+  opacity: 0;
+  animation-duration: 0.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.chat.others {
+  color: hsl(276, 55%, 52%);
+  background-color: hsl(272deg 40.54% 92.75%);
+  border-bottom-left-radius: 6px;
+  animation-name: slideFromLeft;
+}
+
+.chat.image-component {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-left: auto;
+  padding: 0;
+  box-shadow: 0px 0px 0px 0px rgba(0 0 0 / 0);
+  animation-name: slideFromRight;
+}
+
+.chat-img {
+  width: 50px;
+  border-radius: 16px;
+}
+
+.chat.my {
+  color: hsl(271, 15%, 43%);
+  background-color: white;
+  border-bottom-right-radius: 6px;
+  margin-left: auto;
+  box-shadow: 0px 3px 5px 0px rgba(0 0 0 / 0.2);
+  animation-name: slideFromRight;
+}
+
+.chat.booking-details {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: linear-gradient(to right, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+  border-bottom-left-radius: 6px;
+  cursor: pointer;
+  animation-name: slideFromLeft;
+}
+
+.chat-checkbox {
+  width: 10px;
+  height: 10px;
+  border: 1px solid hsl(289, 100%, 72%);
+  border-radius: 50%;
+}
+
+.chat-checkbox.active {
+  background-color: hsl(264, 100%, 61%);
+}
+
+.booking-type {
+  color: hsl(276, 100%, 81%);
+}
+
+.booking-price {
+  color: white;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.chat-input-component {
+  display: flex;
+  border-radius: 24px;
+  background-color: white;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.chat-input {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  color: hsl(206, 6%, 79%);
+  outline: none;
+  background-color: transparent;
+  border: none;
+  font-size: 10px;
+}
+
+.send-btn-component {
+  min-width: 30px;
+  min-height: 30px;
+  max-width: 30px;
+  max-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  background-color: hsl(271, 36%, 24%);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.title-para-component {
+  display: flex;
+  position: relative;
+  z-index: 1;
+}
+
+.title-para-component::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 75%;
+  height: 85%;
+  background: hsl(290deg 37.5% 96.86%);
+  border-radius: 300px 300px 0 0;
+  transform: translateX(40%);
+  z-index: -1;
+}
+
+.title-para {
+  min-width: 300px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.title {
+  color: hsl(271, 36%, 24%);
+  font-size: 40px;
+  opacity: 0;
+  animation-duration: 0.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-name: slideFromLeft;
+}
+
+.para {
+  color: hsl(270, 7%, 64%);
+  font-size: 18px;
+  opacity: 0;
+  animation-duration: 0.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-name: slideFromRight;
+}
+
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes pulseWhite {
+	0% {
+    opacity: 0;
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+	}
+	
+	70% {
+    opacity: 1;
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+	}
+	
+	100% {
+    opacity: 1;
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+	}
+}
+
+
+@media screen and (max-width: 44rem) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-component {
+    padding: 50px 20px;
+    justify-content: center;
+  }
+
+  .mobile-bg-color::before {
+    height: 180%;
+    transform: translateX(-75%);
+  }
+
+  .title-para-component {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .title-para {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .title-para-component::before {
+    width: 85%;
+    height: 160%;
+  }
+}
