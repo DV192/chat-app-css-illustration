@@ -19,6 +19,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   padding-right: 90px;
+  padding-left: 20px;
   position: relative;
   z-index: 2;
 }
